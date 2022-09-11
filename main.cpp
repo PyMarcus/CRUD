@@ -36,7 +36,6 @@ Crud::Crud(std::string user, std::string password, int port, std::string databas
 
 bool Crud::connectMySQL()
 {
-    std::cout << "OI";
     static unsigned int opt_flag = 0; // status da conexao
     static char* opt_socket_name = NULL;
     MYSQL     *conn;                  // ponteiro para conexao
@@ -86,11 +85,9 @@ int main()
     std::string database = "users_cpp";
     int port = 3306;
 
-    std::cout << "OI";
-    //Crud *crud = new Crud(user,password, port,host);
-    std::cout << "OI";
-    //crud->connect_with_database();
-    //crud->selectAll("SELECT * FROM Users;");
+    Crud *crud = new Crud(user,password, port,host);
+    crud->connect_with_database();
+    crud->selectAll("SELECT * FROM Users;");
     getLocalTime_();
     return 0 ;
 }
